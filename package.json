@@ -1,0 +1,51 @@
+{
+  "name": "nodejs-solidity",
+  "version": "1.0.0",
+  "description": "testing and deploying smart contracts with NodeJS",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha --exit --recursive",
+    "dev": "nodemon --exec babel-node src/app.js",
+    "build": "npm run clear:dist && babel src -d dist",
+    "start": "npm run build && nodemon dist/app.js",
+    "serve": "npm run build && node dist/app.js",
+    "serve:pm2": "npm run build && pm2 start dist/app.js",
+    "test-babel-dev": "mocha --exit --recursive --require @babel/register",
+    "test-babel": "npm run build && mocha --exit --recursive --require @babel/register",
+    "git": "git add . && git commit -m \"$npm_package_name ($npm_package_version) ## $(date) ## \" && git push origin master",
+    "clear": "rm -rf dist/ node_modules/",
+    "clear:dist": "rm -rf dist"
+  },
+  "dependencies": {
+    "solc": "^0.8.19"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.3",
+    "@babel/node": "^7.20.7",
+    "@babel/plugin-transform-runtime": "^7.21.0",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/register": "^7.21.0",
+    "@babel/runtime": "^7.21.0",
+    "babel-plugin-module-resolver": "^5.0.0",
+    "babel-preset-minify": "^0.5.2",
+    "eslint": "^8.37.0",
+    "mocha": "^10.2.0",
+    "nodemon": "^2.0.22"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fmansimli/nodejs-solidity.git"
+  },
+  "keywords": [
+    "nodejs",
+    "solidity",
+    "ethereum"
+  ],
+  "author": "Farid Mansimli",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fmansimli/nodejs-solidity/issues"
+  },
+  "homepage": "https://github.com/fmansimli/nodejs-solidity#readme"
+}
