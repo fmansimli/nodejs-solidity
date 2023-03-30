@@ -4,20 +4,20 @@
   "description": "testing and deploying smart contracts with NodeJS",
   "main": "app.js",
   "scripts": {
-    "test": "mocha --exit --recursive",
+    "test": "mocha --exit --recursive --require @babel/register",
     "dev": "nodemon --exec babel-node src/app.js",
     "build": "npm run clear:dist && babel src -d dist",
     "start": "npm run build && nodemon dist/app.js",
     "serve": "npm run build && node dist/app.js",
     "serve:pm2": "npm run build && pm2 start dist/app.js",
-    "test-babel-dev": "mocha --exit --recursive --require @babel/register",
-    "test-babel": "npm run build && mocha --exit --recursive --require @babel/register",
+    "build:test:": "npm run build && mocha --exit --recursive --require @babel/register",
     "git": "git add . && git commit -m \"$npm_package_name ($npm_package_version) ## $(date) ## \" && git push origin master",
     "clear": "rm -rf dist/ node_modules/",
     "clear:dist": "rm -rf dist"
   },
   "dependencies": {
-    "solc": "^0.8.19"
+    "solc": "^0.8.19",
+    "web3": "^1.9.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.21.0",
@@ -30,6 +30,7 @@
     "babel-plugin-module-resolver": "^5.0.0",
     "babel-preset-minify": "^0.5.2",
     "eslint": "^8.37.0",
+    "ganache": "^7.7.7",
     "mocha": "^10.2.0",
     "nodemon": "^2.0.22"
   },
