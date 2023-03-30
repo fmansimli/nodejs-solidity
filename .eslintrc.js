@@ -12,5 +12,6 @@ module.exports = {
     semi: ["error", "always"],
     quotes: ["error", "double"],
     "no-unused-vars": ["warn", { varsIgnorePattern: "^_", argsIgnorePattern: "^_" }],
+    "no-undef": "off",
   },
 };
